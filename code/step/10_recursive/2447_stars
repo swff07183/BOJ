@@ -1,0 +1,33 @@
+def make_star(n) :
+    if n == 3 :
+        stars[0] = ["*", "*", "*"]
+        stars[1] = ["*", " ", "*"]
+        stars[2] = ["*", "*", "*"]
+
+    else :
+        x = n // 3
+        
+        # 재귀 호출
+        make_star(x)
+
+        # 상단
+        for i in range(x) :
+            stars[i] = stars[i][:x] * 3
+        # 중단
+        for i in range(x, 2*x) :
+            stars[i] = stars[i%x][:x] + [" "] * x + stars[i%x][:x]
+        # 하단
+        for i in range(2*x, 3*x) :
+            stars[i] = stars[i%x][:x] * 3
+
+def print_star():
+    for i in stars :
+        for j in i :
+            print(j, end='')
+        print()
+
+n = int(input())
+stars = [[" " for i in range(n)] for j in range(n)]
+
+make_star(n)
+print_star()
