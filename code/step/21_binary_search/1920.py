@@ -11,7 +11,7 @@ def binary_search(t, arr):
         else:
             l = c+1
     return 0
-        
+
 
 N = int(input())
 
