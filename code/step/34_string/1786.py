@@ -1,7 +1,3 @@
-import sys
-
-sys.stdin = open("input.txt")
-
 
 def get_next_arr(pattern):
     # preprocessing
