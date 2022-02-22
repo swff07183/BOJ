@@ -30,10 +30,10 @@ def snail(n, target):
             if idx_d == 4:
                 idx_d = 0
 
-result, pos = snail(N, target)
+result, pos2 = snail(N, target)
 for row in result:
     for num in row:
         print(num, end=" ")
     print()
 
-print(pos[0], pos[1])
+print(pos2[0], pos2[1])
