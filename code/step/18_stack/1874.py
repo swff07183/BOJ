@@ -35,7 +35,7 @@ def is_pos_seq(N, seq):
     op = []
 
     while num <= N + 1 and idx < N:
-        if s1.peek() != seq[idx]:
+        if s1.peek() != seq[idx] and num <= N:
             s1.push(num)
             num += 1
             op.append('+')

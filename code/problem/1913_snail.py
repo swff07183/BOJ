@@ -10,22 +10,23 @@ def snail(n, target):
     dj = [0, 1, 0, -1]
 
     i = n // 2
-    j = n // 2
+    j = (n-1) // 2
     idx_d = 0
 
     num = 1
     arr[i][j] = num
+    pos = (i+1, j+1)
     for cnt in range(1, N+1):
         for _ in range(2):
             for _ in range(cnt):
                 i += di[idx_d]
                 j += dj[idx_d]
                 num += 1
+                if num == target:
+                    pos = [i+1, j+1]
                 if num > N**2:
                     return arr, pos
                 arr[i][j] = num
-                if num == target:
-                    pos = [i+1, j+1]
             idx_d += 1
             if idx_d == 4:
                 idx_d = 0
