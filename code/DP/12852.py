@@ -18,7 +18,6 @@ for i in range(2, N+1):
             seq[i] = [i] + seq[i//2]
 
     dp[i] = tmp + 1
-    # print(f"{i}: {dp[i]}")
 
 print(dp[N])
 print(*seq[N])
