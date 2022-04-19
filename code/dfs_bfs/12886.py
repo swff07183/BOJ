@@ -2,6 +2,7 @@ import sys
 input = sys.stdin.readline
 from collections import deque
 
+
 def bfs(a, b, c):
     queue = deque()
     queue.append([a, b, c])
