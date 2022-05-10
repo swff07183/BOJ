@@ -25,3 +25,7 @@ for k in range(3):
     b = (k+2) % 3
     result = min(result, dp[k][N-1][a], dp[k][N-1][b])
 print(result)
+for k in range(3):
+    for row in dp[k]:
+        print(*row)
+    print("="*70)
