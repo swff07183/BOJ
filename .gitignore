@@ -6,3 +6,7 @@ input.txt
 test.js
 test.java
 test.class
+test.cpp
+.vscode
+test.dSYM
+test
