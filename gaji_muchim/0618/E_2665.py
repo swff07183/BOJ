@@ -1,3 +1,8 @@
+"""
+dijkstra
+ㅁ -> 검은방 : 가중치 0
+ㅁ -> 흰방 : 가중치 1
+"""
 import sys, heapq
 input = lambda : sys.stdin.readline().rstrip()
 
@@ -38,9 +43,3 @@ e = [n-1, n-1]
 
 result = dijkstra()
 print(result)
-
-"""
-dijkstra
-ㅁ -> 검은방 : 가중치 0
-ㅁ -> 흰방 : 가중치 1
-"""
