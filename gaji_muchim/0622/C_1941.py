@@ -1,3 +1,5 @@
+# 삽질의 흔적
+
 # def recur(nodes, som=0, yeon=0):
 #     global func_call, result
 #     if len(nodes) > 7 or yeon > 4:
@@ -31,9 +33,9 @@ input = lambda: sys.stdin.readline().rstrip()
 di = [1, 0, -1, 0]
 dj = [0, 1, 0, -1]
 
-
 def dfs(cur, i, j, nodes, v):
-    cnt = 1
+    # 요소가 전부 연결되었는지 확인하기
+    cnt = 1 
     for d in range(4):
         ni = i + di[d]
         nj = j + dj[d]
@@ -54,15 +56,16 @@ def check(nodes):
 
 def recur(cur, start, tmp):
     global result, yeon
-    if yeon >= 4:
+    if yeon >= 4:   # 연이 4 이상 -> 어차피 다솜파가 4명이상 안되니까 가지치기
         return
-    if cur == 7:
+    if cur == 7:    # 7명 다 뽑았을 때 연결되어있는지 확인하기
         if check(tmp) >= 7:        
             result += 1
         return
+    
     for i in range(N):
         for j in range(N):
-            idx = i*5 + j
+            idx = i*5 + j   # 5*5 -> 0~24까지 번호 매기기
             if idx > start:
                 yeon += (1 - arr[i][j])
                 recur(cur+1, idx, tmp + [[i, j]])
