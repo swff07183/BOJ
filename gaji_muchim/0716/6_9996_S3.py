@@ -8,9 +8,9 @@ import sys
 input = lambda: sys.stdin.readline().rstrip()
 
 def check(word, patt):
-    if len(patt[0]+patt[1]) > len(word):
+    if len(patt[0]+patt[1]) > len(word):    # 두개 합한거 길이가 짧으면?
         return False
-    if patt[0] != word[:len(patt[0])] or patt[1] != word[-len(patt[1]):]:
+    if patt[0] != word[:len(patt[0])] or patt[1] != word[-len(patt[1]):]:   # 그 다음 접두 접미 가져와서 비교함
         return False
     return True
 

@@ -23,16 +23,16 @@ def spring():
     """
     for i in range(N):
         for j in range(N):
-            trees[i][j].sort(reverse=True)
-            tmp = []
+            trees[i][j].sort(reverse=True)      # pop 할꺼라 reverse=True로 해줬음
+            tmp = []                            # 살아있는 나무 저장할 리스트
             while trees[i][j]:
-                tree = trees[i][j].pop()
-                if tree <= foods[i][j]:
-                    foods[i][j] -= tree
-                    tmp.append(tree+1)
+                tree = trees[i][j].pop()        # 나이 어린 순서대로 꺼내서
+                if tree <= foods[i][j]:         # 양분 먹을 수이쓰면
+                    foods[i][j] -= trees        # 양분 개수 줄이고
+                    tmp.append(tree+1)          # 살아있는 나무에 추가하고
                 else:
-                    dead[i][j].append(tree)
-            trees[i][j] = tmp[:]
+                    dead[i][j].append(tree)     # 죽었으면 죽은거에 추가함
+            trees[i][j] = tmp[:]                # 다 돌린 다음 살아있는 나무에 추가하고
 
 def summer():
     """
@@ -42,7 +42,7 @@ def summer():
     for i in range(N):
         for j in range(N):
             while dead[i][j]:
-                foods[i][j] += (dead[i][j].pop() // 2)
+                foods[i][j] += (dead[i][j].pop() // 2)  # 죽은 나무들 체크해서 양분으로 변함
 def fall():
     """
     나이가 5의 배수인 나무가 번식함
@@ -50,14 +50,14 @@ def fall():
     """
     for i in range(N):
         for j in range(N):
-            for tree in trees[i][j]:
-                if tree % 5 == 0:
-                    for d in range(8):
+            for tree in trees[i][j]:                    # 그다음 트리 있는 녀석들 체크해서
+                if tree % 5 == 0:                       # 이거 5의 배수다?
+                    for d in range(8):                  # 그럼 8방향
                         ni = i + di[d]
                         nj = j + dj[d]
                         if not (0<=ni<N and 0<=nj<N):
                             continue
-                        trees[ni][nj].append(1)
+                        trees[ni][nj].append(1)         # 나이 1짜리인 나무 추가
 
 def winter():
     """
@@ -65,13 +65,13 @@ def winter():
     """
     for i in range(N):
         for j in range(N):
-            foods[i][j] += arr[i][j]
+            foods[i][j] += arr[i][j]                    # 양분 추가함
 
 def years():
-    spring()
-    summer()
-    fall()
-    winter()
+    spring()                                            # 봄
+    summer()                                            # 여름
+    fall()                                              # 가을
+    winter()                                            # 겨울~
 
 N, M, K = map(int, input().split())
 trees = [[[] for _ in range(N)] for _ in range(N)]

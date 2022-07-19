@@ -7,7 +7,6 @@ DP 고
 """
 
 import sys
-sys.stdin = open('input.txt')
 input = lambda: sys.stdin.readline().rstrip()
 
 N, M, H = map(int, input().split())
@@ -18,6 +17,7 @@ dp = [[0 for _ in range(N)] for _ in range(H+1)]
 for i in arr[0]:
     dp[i][0] = 1
 
+    
 for i in range(1, N):
     for j in range(H+1):
         for k in arr[i]:

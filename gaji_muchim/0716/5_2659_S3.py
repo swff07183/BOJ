@@ -14,16 +14,16 @@ def get_clock_num(card):
     for i in range(4):
         tmp = ''
         for j in range(4):
-            idx = (i+j) % 4
-            tmp += card[idx]
-        ret = min(ret, int(tmp))
+            idx = (i+j) % 4         # 인덱스 구해서
+            tmp += card[idx]        # tmp 에 추가해놓고
+        ret = min(ret, int(tmp))    # 정수로 바꿔서 비교함
     return ret
     
 
 def make_card(cnt, tmp):
     """
     카드만들기
-    9^4
+    9^4 -> 완탐 ㄱ
     """
     if cnt == 4:
         tmp = get_clock_num(tmp)
