@@ -9,7 +9,6 @@ n, m = map(int, input().split())
 
 board = [[0 for _ in range(m+1)] for _ in range(n+1)]
 
-# arr = [[] for _ in range(3)]
 di = [-1, -1, -1, 0, 0, 1, 1, 1]
 dj = [-1, 0, 1, -1, 1, -1, 0, 1]
 
