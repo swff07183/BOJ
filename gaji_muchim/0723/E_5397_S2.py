@@ -1,6 +1,5 @@
 """
 키로거
-BA<<C>D
 """
 import sys
 sys.stdin = open('input.txt')
