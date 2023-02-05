@@ -5,38 +5,17 @@
 using namespace std;
 
 vector<int> split(string str, char delimiter);
-string getAnswer(vector<int> v, int s, int e, bool isReverse) {
-  string answer = "";
-
-  answer += '[';
-
-  if (isReverse == true) {
-    for(int i=e; i>=s; i--) {
-      answer += to_string(v[i]);
-      if (i != s) answer += ',';
-    }
-  } else {
-    for(int i=s; i<=e; i++) {
-      answer += to_string(v[i]);
-      if (i != e) answer += ',';
-    }
-  }
-
-  answer += ']';
-
-  return answer;
-}
+string getAnswer(vector<int> v, int s, int sz, bool isReverse);
 
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
   cout.tie(0);
   
-  int T, n, s, e, sz;
+  int T, n, s, sz;
   bool isReverse, isError;
   string p, str_x;
   vector<int> x;
-  vector<string> answers;
   
   cin >> T;
 
@@ -47,7 +26,7 @@ int main() {
 
     isReverse = false;
     isError = false;
-    s = 0, e = x.size()-1;
+    s = 0;
     sz = x.size();
 
     for (int i=0; i<p.size(); i++) {
@@ -64,25 +43,17 @@ int main() {
           // 앞에서 제거
           s += 1;
         }
-        else {
-          // 뒤에서 제거
-          e -= 1;
-        }
         sz -= 1;
       }
     }
 
     if (isError == true) {
-      answers.push_back("error");
+      cout << "error" << endl;
     }
     else {
-      answers.push_back(getAnswer(x, s, e, isReverse));
+      cout << getAnswer(x, s, sz, isReverse) << endl;
     }
  
-  } 
-
-  for (int i=0; i<T; i++) {
-    cout << answers[i] << endl;
   }
 
   return 0;
@@ -98,4 +69,27 @@ vector<int> split(string str, char delimiter) {
     }
  
     return ret;
+}
+
+string getAnswer(vector<int> v, int s, int sz, bool isReverse) {
+  string answer = "";
+
+  answer += '[';
+  int e = s + sz - 1;
+
+  if (isReverse == true) {
+    for(int i=e; i>=s; i--) {
+      answer += to_string(v[i]);
+      if (i != s) answer += ',';
+    }
+  } else {
+    for(int i=s; i<=e; i++) {
+      answer += to_string(v[i]);
+      if (i != e) answer += ',';
+    }
+  }
+
+  answer += ']';
+
+  return answer;
 }
